@@ -1,6 +1,6 @@
 # get-sauce <!-- omit in toc -->
 
-[![Build](https://github.com/gan-of-culture/get-sauce/actions/workflows/go.yml/badge.svg?branch=master)](https://github.com/gan-of-culture/get-sauce/actions/workflows/go.yml)
+[![Build](https://github.com/zenin-373/get-sauce/actions/workflows/go.yml/badge.svg?branch=master)](https://github.com/zenin-373/get-sauce/actions/workflows/go.yml)
 
 Is a command line program to download Hentai videos and images from multiple websites. Most sites have very intrusive advertisements, disable downloading of content, limit download speeds or only provide lesser video resolutions, but this tool will always give you the opportunity to download the best available quality from each site. It's also possible to input URLs to a category or multiple URLs and get-sauce will download it all.
 
@@ -25,19 +25,25 @@ The following dependencies are required and must be installed separately.
 
 > **Note**: FFmpeg does not affect the download, only affects the final file merge.
 
-If you don't want to build the app yourself checkout the [releases page](https://github.com/gan-of-culture/get-sauce/releases).
+Download a prebuilt binary for your operating system from the [releases page](https://github.com/zenin-373/get-sauce/releases).
 
-Otherwise you can use [Golang](https://golang.org/dl/) to install or update it:
+### Build from source
 
-```console
-go install github.com/gan-of-culture/get-sauce@latest
-```
-
-Or if you got Golang already installed you can download the source code and run the program from the source code this:
+Install [Go](https://go.dev/dl/) first, then clone this fork and build it:
 
 ```console
-go run main.go ...
+git clone https://github.com/zenin-373/get-sauce.git
+cd get-sauce
+go build -o get-sauce .
 ```
+
+On Windows, build the executable with:
+
+```powershell
+go build -o get-sauce.exe .
+```
+
+FFmpeg is required for merging downloaded video streams. This fork outputs merged videos as `.mkv` files.
 
 ## Getting started
 
@@ -331,7 +337,7 @@ The following links will direct you to adult content. Please keep that in mind!
 | [hentaiworld.tv (1080p, 720p, 480p)](https://hentaiworld.tv/)                   |         ?          | :heavy_check_mark: |
 | [hentaizap.com](https://hentaizap.com)                                          | :heavy_check_mark: |         ?          |
 | [hitomi.la](https://hitomi.la/)                                                 | :heavy_check_mark: |         ?          |
-| [hstream.moe (2160p, 1080p, 480p)](https://hstream.moe/)                        |         ?          | :heavy_check_mark: |   :cookie:   | [#164](https://github.com/gan-of-culture/get-sauce/issues/164) |
+| [hstream.moe (2160p, 1080p, 480p)](https://hstream.moe/)                        |         ?          | :heavy_check_mark: |   :cookie:   | [#164](https://github.com/zenin-373/get-sauce/issues) |
 | [imhentai.xxx](https://imhentai.xxx)                                            | :heavy_check_mark: |         ?          |
 | [iwara.tv](https://iwara.tv/)                                                   | :heavy_check_mark: | :heavy_check_mark: |
 | [konachan.com](https://konachan.com/post?tags=)                                 | :heavy_check_mark: |         ?          |
