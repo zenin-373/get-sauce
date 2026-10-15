@@ -41,6 +41,9 @@ func (dM dataMerger) Merge(files []*MergeFile, outFile string) error {
 		case ".mp4":
 			command = append(command, "-c:s")
 			command = append(command, "mov_text")
+		case ".mkv":
+			command = append(command, "-c:s")
+			command = append(command, "copy")
 		default:
 			// Specifically ensures the subtitle codec is set correctly for the WebM container (in this case).
 			// WebM currently has no support for styled subitltes like .ass or .srt. They are getting style-stripped

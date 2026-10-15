@@ -109,7 +109,7 @@ func (downloader *downloaderStruct) Download(data *static.Data) error {
 		}
 		downloader.stream.Ext = cmp.Or(downloader.stream.Ext, downloader.stream.URLs[0].Ext)
 		mergeFiles = append(mergeFiles, additionalFiles...)
-		return merger.NewDataMerger().Merge(mergeFiles, filepath.Join(downloader.filePath, fmt.Sprintf("%s_merged.%s", downloader.filename, data.Streams[config.SelectStream].Ext)))
+		return merger.NewDataMerger().Merge(mergeFiles, filepath.Join(downloader.filePath, fmt.Sprintf("%s.mkv", downloader.filename)))
 	case config.MergeOptCBZ:
 		return merger.NewArchiveMerger(downloader.bar, data).Merge(mergeFiles, filepath.Join(downloader.filePath, fmt.Sprintf("%s.cbz", downloader.filename)))
 	}
