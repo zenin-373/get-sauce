@@ -41,19 +41,25 @@ func (dM dataMerger) Merge(files []*MergeFile, outFile string) error {
 		case ".mp4":
 			command = append(command, "-c:s")
 			command = append(command, "mov_text")
+			command = append(command, "-disposition:s:0")
+			command = append(command, "default+forced")
 		case ".mkv":
 			command = append(command, "-c:s")
 			command = append(command, "copy")
+			// Make the first subtitle track both the default and forced track,
+			// so compatible players enable it automatically.
+			command = append(command, "-disposition:s:0")
+			command = append(command, "default+forced")
 		default:
 			// Specifically ensures the subtitle codec is set correctly for the WebM container (in this case).
-			// WebM currently has no support for styled subitltes like .ass or .srt. They are getting style-stripped
+			// WebM currently has no support for styled subtitles like .ass or .srt. They are getting style-stripped
 			// and added as webvtt.
 			//
-			// For other contaiers this logic might need be adjusted.
+			// For other containers this logic might need be adjusted.
 			command = append(command, "-c:s")
 			command = append(command, "webvtt")
 			command = append(command, "-disposition:s:0")
-			command = append(command, "default")
+			command = append(command, "default+forced")
 		}
 	}
 	command = append(command, outFile)
